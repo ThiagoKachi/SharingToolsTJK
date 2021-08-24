@@ -7,7 +7,7 @@ export function SearchBar() {
   return (
     <Container>
       <input type="text" placeholder="Digite sua busca..." />
-      <Button simbol="+" content="Add" />
+      <Button symbol="+" content="Add" />
     </Container>
   );
 }

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-export function Button({ content, simbol }) {
+export function Button({ content, symbol }) {
   return (
     <Container>
-      <span>{simbol}</span>
+      <span>{symbol}</span>
       {content}
     </Container>
   );
@@ -14,5 +14,5 @@ export function Button({ content, simbol }) {
 
 Button.propTypes = {
   content: PropTypes.string,
-  simbol: PropTypes.string,
+  symbol: PropTypes.string,
 };
