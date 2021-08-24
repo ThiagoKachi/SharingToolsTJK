@@ -25,4 +25,9 @@ export const Container = styled.div`
     box-shadow: 1px 0 5px 1px #68e4a8;
     outline: none;
   }
+
+  button {
+    margin-top: 30px;
+    margin-left: 20px;
+  }
 `;
