@@ -6,13 +6,12 @@ export const Container = styled.div`
   }
 
   p:nth-child(1) {
-    margin-top: 50px;
+    margin-top: 30px;
     font-size: 22px;
   }
 
   p:nth-child(2) {
-    margin-top: 18px;
-    /* color: #68e4a8; */
+    margin-top: 14px;
     font-size: 18px;
   }
 `;
