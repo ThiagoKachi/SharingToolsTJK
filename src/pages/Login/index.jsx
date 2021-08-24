@@ -26,7 +26,7 @@ export function Login() {
   return (
     <Container>
       <h1>
-        Bem-vindo ao <span>RememberToolsTJK</span>
+        Bem-vindo ao <span>SharingToolsTJK</span>
       </h1>
       <div className="content">
         <div className="image-main">

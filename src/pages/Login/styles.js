@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.main`
   text-align: center;
-  margin-top: 5%;
+  margin-top: 3%;
 
   h1 {
     font-size: 45px;
@@ -23,7 +23,7 @@ export const Container = styled.main`
     .image-main {
       img {
         width: 80%;
-        margin-right: 100px;
+        margin-right: 70px;
       }
     }
 
@@ -103,7 +103,7 @@ export const Container = styled.main`
     justify-content: center;
 
     width: 100%;
-    padding: 8px 8px;
+    padding: 10px 8px;
     border-radius: 4px;
     border: none;
     font-size: 18px;
