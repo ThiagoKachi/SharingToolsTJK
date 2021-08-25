@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { AppContext } from './AppContext';
+import { getPostsList } from '../services';
 
 export function Provider({ children }) {
   const [userName, setUserName] = useState('');
@@ -20,12 +21,25 @@ export function Provider({ children }) {
     setRedirect(true);
   }
 
+  // Posts List Homepage
+  const [postsList, setPostsList] = useState([]);
+
+  useEffect(() => {
+    async function getPostList() {
+      const getPostsListFromApi = await getPostsList();
+      setPostsList(getPostsListFromApi);
+    }
+
+    getPostList();
+  }, []);
+
   const infosToShare = {
     userName,
     setUserName,
     getUserName,
     redirect,
     setDisableButtonIsTrueOrFalse,
+    postsList,
   };
 
   return (

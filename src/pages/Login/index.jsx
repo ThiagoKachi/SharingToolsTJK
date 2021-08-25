@@ -61,5 +61,3 @@ export function Login() {
     </Container>
   );
 }
-
-// Em logar com gitHub, fazer toda a logica de autenticação
