@@ -1,21 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 import { Button } from '../Button';
 
-export function Card() {
+export function Card({ post }) {
   return (
     <Container>
       <div className="content">
-        <a href="#">Nome do app</a>
+        <a href={post.link}>{post.title}</a>
         <Button symbol="X" content="remove" />
       </div>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia
-        accusamus excepturi eveniet? Lorem ipsum, dolor sit amet consectetur
-        adipisicing elit.
+      <p>{post.description}</p>
+      <p className="tags">
+        {post.tags.map((tag) => (
+          <p key={tag} className="tag">
+            #{tag}
+          </p>
+        ))}
       </p>
-      <p>#tags #tags #tags #tags</p>
     </Container>
   );
 }
+
+Card.propTypes = {
+  post: PropTypes.object,
+};

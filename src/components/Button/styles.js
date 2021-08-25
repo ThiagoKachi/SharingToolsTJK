@@ -4,6 +4,7 @@ export const Container = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: white;
 
   width: 120px;
   padding: 3px;
@@ -25,5 +26,6 @@ export const Container = styled.button`
   span {
     margin-right: 8px;
     font-size: 30px;
+    color: #1c1c1c;
   }
 `;

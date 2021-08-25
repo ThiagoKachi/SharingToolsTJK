@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../../context/AppContext';
 
-// import { Container } from './styles';
+import { Card } from '../Card';
 
 export function CardList() {
-  return <div />;
+  const { postsList } = useContext(AppContext);
+
+  return (
+    <>
+      {postsList.map((post) => (
+        <Card post={post} key={post.id} />
+      ))}
+    </>
+  );
 }
