@@ -7,7 +7,7 @@ export const Container = styled.div`
 
   input {
     width: 100%;
-    max-width: 700px;
+    max-width: 543px;
     padding: 10px;
     margin-top: 30px;
     border: none;
@@ -29,5 +29,22 @@ export const Container = styled.div`
   button {
     margin-top: 30px;
     margin-left: 20px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  .checkbox {
+    width: 20px;
+    margin-right: 4px;
+    margin-left: 4px;
+  }
+
+  .checkbox:checked,
+  .checkbox:active,
+  .checkbox:focus {
+    border: none;
+    box-shadow: none;
   }
 `;

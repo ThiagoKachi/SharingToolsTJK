@@ -33,6 +33,19 @@ export function Provider({ children }) {
     getPostList();
   }, []);
 
+  // SearchBar
+  const [searchPost, setSearchPost] = useState('');
+
+  const lowerSearch = searchPost.toLowerCase();
+
+  const filteredSearchByName = postsList.filter(({ title }) =>
+    title.toLowerCase().includes(lowerSearch)
+  );
+
+  const filteredSearchByTags = postsList.filter(({ tags }) =>
+    tags.find((tag) => tag.toLowerCase().includes(lowerSearch))
+  );
+
   const infosToShare = {
     userName,
     setUserName,
@@ -40,6 +53,10 @@ export function Provider({ children }) {
     redirect,
     setDisableButtonIsTrueOrFalse,
     postsList,
+    searchPost,
+    setSearchPost,
+    filteredSearchByName,
+    filteredSearchByTags,
   };
 
   return (

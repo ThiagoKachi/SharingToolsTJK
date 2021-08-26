@@ -46,6 +46,10 @@ export const Container = styled.div`
     color: #1c1c1c;
   }
 
+  span {
+    margin-bottom: 6px;
+  }
+
   .tags {
     display: flex;
     flex-direction: row;
