@@ -14,9 +14,9 @@ export function Card({ post }) {
       <p>{post.description}</p>
       <p className="tags">
         {post.tags.map((tag) => (
-          <p key={tag} className="tag">
+          <span key={tag} className="tag">
             #{tag}
-          </p>
+          </span>
         ))}
       </p>
     </Container>
