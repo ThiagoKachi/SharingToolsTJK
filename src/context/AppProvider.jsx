@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { AppContext } from './AppContext';
-import { getPostsList } from '../services';
+import { getPostsList, deletePostById } from '../services';
 
 export function Provider({ children }) {
   const [userName, setUserName] = useState('');
@@ -46,6 +46,20 @@ export function Provider({ children }) {
     tags.find((tag) => tag.toLowerCase().includes(lowerSearch))
   );
 
+  // Delete post
+
+  function getPostId(id) {
+    return postsList.map(
+      (post) =>
+        post.id === id &&
+        deletePostById(id).then(() =>
+          setPostsList((lastPosts) =>
+            lastPosts.filter((posts) => posts.id !== id)
+          )
+        )
+    );
+  }
+
   const infosToShare = {
     userName,
     setUserName,
@@ -57,6 +71,7 @@ export function Provider({ children }) {
     setSearchPost,
     filteredSearchByName,
     filteredSearchByTags,
+    getPostId,
   };
 
   return (

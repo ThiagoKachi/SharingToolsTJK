@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 import { Button } from '../Button';
+import { AppContext } from '../../context/AppContext';
 
-export function Card({ post }) {
+export function Card({ post, idPost }) {
+  const { getPostId } = useContext(AppContext);
+
   return (
     <Container>
       <div className="content">
         <a href={post.link}>{post.title}</a>
-        <Button symbol="X" content="remove" />
+        <Button symbol="X" content="remove" onClick={() => getPostId(idPost)} />
       </div>
       <p>{post.description}</p>
       <p className="tags">
@@ -25,4 +28,5 @@ export function Card({ post }) {
 
 Card.propTypes = {
   post: PropTypes.object,
+  idPost: PropTypes.number,
 };
