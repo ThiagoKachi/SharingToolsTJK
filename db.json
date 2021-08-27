@@ -11,8 +11,7 @@
         "collaboration",
         "writing",
         "calendar"
-      ],
-      "user": "Thiago Kachinsky"
+      ]
     },
     {
       "id": 2,
@@ -26,8 +25,7 @@
         "node",
         "github",
         "rest"
-      ],
-      "user": "Thiago Kachinsky"
+      ]
     },
     {
       "id": 3,
@@ -41,11 +39,9 @@
         "http2",
         "https",
         "localhost"
-      ],
-      "user": "Thiago Kachinsky"
+      ]
     },
     {
-      "id": 5,
       "title": "test-tool",
       "description": "test-tool description wow",
       "tags": [
@@ -54,7 +50,7 @@
         "wow",
         "such"
       ],
-      "user": "Thiago Kachinsky"
+      "id": 5
     }
   ]
 }

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-export function Button({ content, symbol }) {
+export function Button({ content, symbol, onClick }) {
   return (
-    <Container>
+    <Container onClick={onClick}>
       <span>{symbol}</span>
       {content}
     </Container>
@@ -15,4 +15,5 @@ export function Button({ content, symbol }) {
 Button.propTypes = {
   content: PropTypes.string,
   symbol: PropTypes.string,
+  onClick: PropTypes.func,
 };

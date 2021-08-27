@@ -46,7 +46,7 @@ export const Container = styled.div`
     color: #1c1c1c;
   }
 
-  span {
+  span:nth-child(2) {
     margin-bottom: 6px;
   }
 
