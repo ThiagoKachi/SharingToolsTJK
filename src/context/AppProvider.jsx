@@ -7,6 +7,7 @@ import { getPostsList, deletePostById } from '../services';
 export function Provider({ children }) {
   const [userName, setUserName] = useState('');
   const [redirect, setRedirect] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   function setDisableButtonIsTrueOrFalse() {
     if (userName.length >= 1) {
@@ -26,8 +27,10 @@ export function Provider({ children }) {
 
   useEffect(() => {
     async function getPostList() {
+      setIsLoading(true);
       const getPostsListFromApi = await getPostsList();
       setPostsList(getPostsListFromApi);
+      setIsLoading(false);
     }
 
     getPostList();
@@ -72,6 +75,7 @@ export function Provider({ children }) {
     filteredSearchByName,
     filteredSearchByTags,
     getPostId,
+    isLoading,
   };
 
   return (

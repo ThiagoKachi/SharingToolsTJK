@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Header from '../../components/Header';
 
 import { SearchBar } from '../../components/SearchBar';
 import { Container } from './styles';
+import { Loader } from '../../components/Loader';
 import { CardList } from '../../components/CardList';
+import { AppContext } from '../../context/AppContext';
 
 export function Home() {
+  const { isLoading } = useContext(AppContext);
+
   return (
     <>
       <Header />
@@ -21,7 +25,7 @@ export function Home() {
         </p>
       </Container>
       <SearchBar />
-      <CardList />
+      {!isLoading ? <CardList /> : <Loader />}
     </>
   );
 }
