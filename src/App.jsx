@@ -14,6 +14,7 @@ function App() {
 
 export default App;
 
+// Abrir modal antes de excluir item
 // Fazer funcionalidade de adicionar ferramenta
 // Fazer autenticação com github && pegar user e avatar para colocar no Header
 // Deixar remover apenas se o usuário for o mesmo que criou

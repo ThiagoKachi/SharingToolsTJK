@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import { AppContext } from '../../context/AppContext';
+
 import { Container } from './styles';
+import { AppContext } from '../../context/AppContext';
 
 import { Card } from '../Card';
 
@@ -11,7 +12,7 @@ export function CardList() {
 
   return filteredSearchByName.length === 0 ||
     filteredSearchByTags.length === 0 ? (
-    <Container className="no-results">Nada cadastrado por aqui...</Container>
+    <Container className="no-results">Nenhum resultado encontrado...</Container>
   ) : (
     <>
       {checkedTest.checked
