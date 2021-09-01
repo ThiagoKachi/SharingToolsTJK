@@ -8,6 +8,8 @@ export function Provider({ children }) {
   const [userName, setUserName] = useState('');
   const [redirect, setRedirect] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [getId, setGetId] = useState('');
 
   function setDisableButtonIsTrueOrFalse() {
     if (userName.length >= 1) {
@@ -52,6 +54,7 @@ export function Provider({ children }) {
   // Delete post
 
   function getPostId(id) {
+    setIsOpen(false);
     return postsList.map(
       (post) =>
         post.id === id &&
@@ -61,6 +64,15 @@ export function Provider({ children }) {
           )
         )
     );
+  }
+
+  function openModal(id) {
+    setIsOpen(true);
+    setGetId(id);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
   }
 
   const infosToShare = {
@@ -76,6 +88,10 @@ export function Provider({ children }) {
     filteredSearchByTags,
     getPostId,
     isLoading,
+    openModal,
+    closeModal,
+    modalIsOpen,
+    getId,
   };
 
   return (
