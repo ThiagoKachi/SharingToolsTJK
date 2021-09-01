@@ -4,15 +4,16 @@ import PropTypes from 'prop-types';
 import { Container } from './styles';
 import { Button } from '../Button';
 import { AppContext } from '../../context/AppContext';
+import { DeleteModal } from '../../components/DeleteModal';
 
 export function Card({ post, idPost }) {
-  const { getPostId } = useContext(AppContext);
+  const { modalIsOpen, openModal } = useContext(AppContext);
 
   return (
     <Container>
       <div className="content">
         <a href={post.link}>{post.title}</a>
-        <Button symbol="X" content="remove" onClick={() => getPostId(idPost)} />
+        <Button symbol="X" content="remove" onClick={() => openModal(idPost)} />
       </div>
       <p>{post.description}</p>
       <p className="tags">
@@ -22,6 +23,7 @@ export function Card({ post, idPost }) {
           </span>
         ))}
       </p>
+      {modalIsOpen && <DeleteModal />}
     </Container>
   );
 }
