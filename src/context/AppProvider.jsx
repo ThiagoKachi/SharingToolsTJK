@@ -8,7 +8,6 @@ export function Provider({ children }) {
   const [userName, setUserName] = useState('');
   const [redirect, setRedirect] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [modalIsOpen, setIsOpen] = useState(false);
   const [getId, setGetId] = useState('');
 
   function setDisableButtonIsTrueOrFalse() {
@@ -52,6 +51,7 @@ export function Provider({ children }) {
   );
 
   // Delete post
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   function getPostId(id) {
     setIsOpen(false);
@@ -75,6 +75,16 @@ export function Provider({ children }) {
     setIsOpen(false);
   }
 
+  const [addModal, setAddModal] = useState(false);
+
+  function openAddToolModal() {
+    setAddModal(true);
+  }
+
+  function closeAddToolModal() {
+    setAddModal(false);
+  }
+
   const infosToShare = {
     userName,
     setUserName,
@@ -92,6 +102,9 @@ export function Provider({ children }) {
     closeModal,
     modalIsOpen,
     getId,
+    openAddToolModal,
+    closeAddToolModal,
+    addModal,
   };
 
   return (

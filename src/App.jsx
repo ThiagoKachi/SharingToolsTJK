@@ -14,7 +14,7 @@ function App() {
 
 export default App;
 
-// Abrir modal antes de excluir item
-// Fazer funcionalidade de adicionar ferramenta
-// Fazer autenticação com github && pegar user e avatar para colocar no Header
+// Fazer funcionalidade de adicionar ferramenta e abrir modal para isso
+// Fazer autenticação com github && pegar user e avatar para colocar no Header / Firebase?
 // Deixar remover apenas se o usuário for o mesmo que criou
+// Ajustar bug de pesquisa
