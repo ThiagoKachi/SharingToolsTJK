@@ -5,7 +5,8 @@ import { Button } from '../../components/Button';
 import { AppContext } from '../../context/AppContext';
 
 export function SearchBar() {
-  const { setSearchPost, searchPost } = useContext(AppContext);
+  const { setSearchPost, searchPost, openAddToolModal } =
+    useContext(AppContext);
 
   return (
     <Container>
@@ -19,7 +20,7 @@ export function SearchBar() {
         <input type="checkbox" id="checkedOrNot" className="checkbox" />
         Buscar por tags
       </label>
-      <Button symbol="+" content="Add" />
+      <Button symbol="+" content="Add" onClick={() => openAddToolModal()} />
     </Container>
   );
 }

@@ -27,7 +27,8 @@ export const GlobalStyle = createGlobalStyle`
   align-items: center;
 }
 
-.react-modal-content {
+.react-modal-content,
+.react-modal-content-add-modal {
   width: 100%;
   height: 180px;
   max-width: 500px;
@@ -36,6 +37,15 @@ export const GlobalStyle = createGlobalStyle`
   border-radius: 2px;
   margin-bottom: 230px;
   padding: 14px 30px;
+}
+
+.react-modal-content-add-modal {
+  max-width: 700px;
+  padding: 36px 40px;
+  margin: 0;
+  height: 85%;
+  border: 2px solid black;
+  border-radius: 4px;
 }
 
 .ReactModal__Content {
