@@ -1,30 +1,23 @@
 {
   "tools": [
     {
-      "id": 1,
-      "title": "Notion",
-      "link": "https://notion.so",
-      "description": "All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized. ",
+      "id": "13492ff8-c2b0-409d-880d-3d67cb895ef1",
+      "title": "Google",
+      "link": "https://google.com",
+      "description": "Site para todo tipo de pesquisas.",
       "tags": [
-        "organization",
-        "planning",
-        "collaboration",
-        "writing",
-        "calendar"
+        "google"
       ]
     },
     {
-      "id": 3,
-      "title": "fastify",
-      "link": "https://www.fastify.io/",
-      "description": "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
+      "id": "da08c20c-aacc-43c9-9f1d-10627fb7b3c6",
+      "title": "Styled-components",
+      "link": "https://styled-components.com/",
+      "description": "Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress 💅\n",
       "tags": [
-        "web",
-        "framework",
-        "node",
-        "http2",
-        "https",
-        "localhost"
+        "style",
+        "css",
+        "jasvascript"
       ]
     }
   ]

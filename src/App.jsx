@@ -14,7 +14,8 @@ function App() {
 
 export default App;
 
-// Fazer funcionalidade de adicionar ferramenta e abrir modal para isso
+// Ao adicionar ferramenta, atualizar a lista com o post novo
 // Fazer autenticação com github && pegar user e avatar para colocar no Header / Firebase?
 // Deixar remover apenas se o usuário for o mesmo que criou
 // Ajustar bug de pesquisa
+// Ajustar bug 'checked' ao carregar a página

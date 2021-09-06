@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { AppContext } from './AppContext';
-import { getPostsList, deletePostById } from '../services';
+import { getPostsList, deletePostById, createPost } from '../services';
 
 export function Provider({ children }) {
   const [userName, setUserName] = useState('');
@@ -85,6 +85,24 @@ export function Provider({ children }) {
     setAddModal(false);
   }
 
+  // Get input values
+  const [toolName, setToolName] = useState('');
+  const [toolLink, setToolLink] = useState('');
+  const [toolDescription, setToolDescription] = useState('');
+  const [toolTags, setToolTags] = useState([]);
+
+  function mySubmitFunction(e) {
+    e.preventDefault();
+  }
+
+  function createToolPost(title, link, description, tags) {
+    createPost(title, link, description, tags).then(() =>
+      setPostsList((lastPosts) => lastPosts.map((posts) => posts))
+    );
+
+    setAddModal(false);
+  }
+
   const infosToShare = {
     userName,
     setUserName,
@@ -105,6 +123,16 @@ export function Provider({ children }) {
     openAddToolModal,
     closeAddToolModal,
     addModal,
+    mySubmitFunction,
+    toolName,
+    setToolName,
+    toolLink,
+    setToolLink,
+    toolDescription,
+    setToolDescription,
+    toolTags,
+    setToolTags,
+    createToolPost,
   };
 
   return (

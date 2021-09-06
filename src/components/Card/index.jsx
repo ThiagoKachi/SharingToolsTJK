@@ -5,10 +5,9 @@ import { Container } from './styles';
 import { Button } from '../Button';
 import { AppContext } from '../../context/AppContext';
 import { DeleteModal } from '../../components/DeleteModal';
-import { AddPostModal } from '../AddPostModal';
 
 export function Card({ post, idPost }) {
-  const { modalIsOpen, openModal, addModal } = useContext(AppContext);
+  const { modalIsOpen, openModal } = useContext(AppContext);
 
   return (
     <Container>
@@ -25,12 +24,11 @@ export function Card({ post, idPost }) {
         ))}
       </p>
       {modalIsOpen && <DeleteModal />}
-      {addModal && <AddPostModal />}
     </Container>
   );
 }
 
 Card.propTypes = {
   post: PropTypes.object,
-  idPost: PropTypes.number,
+  idPost: PropTypes.string,
 };
