@@ -7,9 +7,10 @@ import { Container } from './styles';
 import { Loader } from '../../components/Loader';
 import { CardList } from '../../components/CardList';
 import { AppContext } from '../../context/AppContext';
+import { AddPostModal } from '../../components/AddPostModal';
 
 export function Home() {
-  const { isLoading } = useContext(AppContext);
+  const { isLoading, addModal } = useContext(AppContext);
 
   return (
     <>
@@ -26,6 +27,7 @@ export function Home() {
       </Container>
       <SearchBar />
       {!isLoading ? <CardList /> : <Loader />}
+      {addModal && <AddPostModal />}
     </>
   );
 }

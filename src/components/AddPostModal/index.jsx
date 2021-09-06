@@ -7,7 +7,20 @@ import { Container } from './styles';
 Modal.setAppElement('#root');
 
 export function AddPostModal() {
-  const { addModal, closeAddToolModal } = useContext(AppContext);
+  const {
+    addModal,
+    closeAddToolModal,
+    mySubmitFunction,
+    toolName,
+    setToolName,
+    toolLink,
+    setToolLink,
+    toolDescription,
+    setToolDescription,
+    toolTags,
+    setToolTags,
+    createToolPost,
+  } = useContext(AppContext);
 
   return (
     <Modal
@@ -21,14 +34,26 @@ export function AddPostModal() {
         <h1>
           <span>+</span> Adicionar ferramenta
         </h1>
-        <form>
+        <form onSubmit={mySubmitFunction}>
           <label htmlFor="">
             Nome da ferramenta
-            <input type="text" placeholder="Nome da ferramenta" required />
+            <input
+              type="text"
+              placeholder="Nome da ferramenta"
+              required
+              value={toolName}
+              onChange={(e) => setToolName(e.target.value)}
+            />
           </label>
           <label htmlFor="">
             Link da ferramenta
-            <input type="text" placeholder="Full URL" required />
+            <input
+              type="text"
+              placeholder="Full URL"
+              required
+              value={toolLink}
+              onChange={(e) => setToolLink(e.target.value)}
+            />
           </label>
           <label htmlFor="">
             Descrição da ferramenta
@@ -36,13 +61,27 @@ export function AddPostModal() {
               type="text"
               placeholder="Breve descrição sobre a ferramenta"
               required
+              value={toolDescription}
+              onChange={(e) => setToolDescription(e.target.value)}
             />
           </label>
           <label htmlFor="">
             TAGS
-            <input type="text" placeholder="Separe por espaços" required />
+            <input
+              type="text"
+              placeholder="Separe por espaços"
+              required
+              value={toolTags}
+              onChange={(e) => setToolTags(e.target.value)}
+            />
           </label>
-          <button>Adicionar ferramenta</button>
+          <button
+            onClick={() =>
+              createToolPost(toolName, toolLink, toolDescription, toolTags)
+            }
+          >
+            Adicionar ferramenta
+          </button>
         </form>
       </Container>
     </Modal>
