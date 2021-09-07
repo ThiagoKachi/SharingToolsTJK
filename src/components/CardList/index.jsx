@@ -10,18 +10,16 @@ export function CardList() {
 
   const checkedTest = document.getElementById('checkedOrNot');
 
-  return filteredSearchByName.length === 0 ||
+  return filteredSearchByName.length === 0 &&
     filteredSearchByTags.length === 0 ? (
     <Container className="no-results">Nenhum resultado encontrado...</Container>
+  ) : checkedTest && checkedTest.checked ? (
+    filteredSearchByTags.map((post) => (
+      <Card post={post} key={post.id} idPost={post.id} />
+    ))
   ) : (
-    <>
-      {checkedTest.checked
-        ? filteredSearchByTags.map((post) => (
-            <Card post={post} key={post.id} idPost={post.id} />
-          ))
-        : filteredSearchByName.map((post) => (
-            <Card post={post} key={post.id} idPost={post.id} />
-          ))}
-    </>
+    filteredSearchByName.map((post) => (
+      <Card post={post} key={post.id} idPost={post.id} />
+    ))
   );
 }

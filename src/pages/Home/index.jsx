@@ -21,8 +21,8 @@ export function Home() {
           você precisa conhecer.
         </p>
         <p>
-          Colabore adicionando conteúdos que você acha legal, e que acha que
-          todos deveriam ver. 🚀
+          Colabore adicionando conteúdos que você acha legal, e que queira
+          compartilhar. 🚀
         </p>
       </Container>
       <SearchBar />
