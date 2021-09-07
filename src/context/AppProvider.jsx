@@ -96,12 +96,15 @@ export function Provider({ children }) {
   }
 
   function createToolPost(title, link, description, tags) {
-    createPost(title, link, description, tags).then(() =>
-      setPostsList((lastPosts) => lastPosts.map((posts) => posts))
+    createPost(title, link, description, tags).then((res) =>
+      setPostsList((prevState) => [...prevState, res])
     );
 
     setAddModal(false);
-    location.reload();
+    setToolName('');
+    setToolLink('');
+    setToolDescription('');
+    setToolTags([]);
   }
 
   function verifyIfFieldsNotNull() {
