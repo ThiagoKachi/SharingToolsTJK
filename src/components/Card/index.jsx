@@ -9,11 +9,21 @@ import { DeleteModal } from '../../components/DeleteModal';
 export function Card({ post, idPost }) {
   const { modalIsOpen, openModal } = useContext(AppContext);
 
+  const userName = localStorage.getItem('userName');
+
   return (
     <Container>
       <div className="content">
         <a href={post.link}>{post.title}</a>
-        <Button symbol="X" content="remove" onClick={() => openModal(idPost)} />
+        {post.user === userName || userName === 'Thiago Kachi' ? (
+          <Button
+            symbol="X"
+            content="remove"
+            onClick={() => openModal(idPost)}
+          />
+        ) : (
+          ''
+        )}
       </div>
       <p>{post.description}</p>
       <p className="tags">
