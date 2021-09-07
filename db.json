@@ -1,23 +1,24 @@
 {
   "tools": [
     {
-      "id": "13492ff8-c2b0-409d-880d-3d67cb895ef1",
-      "title": "Google",
-      "link": "https://google.com",
-      "description": "Site para todo tipo de pesquisas.",
+      "id": "9a42d438-8953-45ab-b4e3-070c2986c1ca",
+      "title": "Notion",
+      "link": "https://notion.com",
+      "description": "notion",
       "tags": [
-        "google"
+        "notion",
+        "bla"
       ]
     },
     {
-      "id": "da08c20c-aacc-43c9-9f1d-10627fb7b3c6",
-      "title": "Styled-components",
-      "link": "https://styled-components.com/",
-      "description": "Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress 💅\n",
+      "id": "fe5230d3-1bb2-4c80-b9cd-4184343ba2a7",
+      "title": "Google",
+      "link": "https://google.com",
+      "description": "Site para realizar buscas.",
       "tags": [
-        "style",
-        "css",
-        "jasvascript"
+        "google",
+        "search",
+        "dev"
       ]
     }
   ]

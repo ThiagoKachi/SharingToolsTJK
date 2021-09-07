@@ -59,5 +59,6 @@ export const Container = styled.div`
 
   .tag {
     padding-right: 8px;
+    margin-bottom: 4px;
   }
 `;

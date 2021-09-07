@@ -20,6 +20,7 @@ export function AddPostModal() {
     toolTags,
     setToolTags,
     createToolPost,
+    verifyIfFieldsNotNull,
   } = useContext(AppContext);
 
   return (
@@ -79,6 +80,7 @@ export function AddPostModal() {
             onClick={() =>
               createToolPost(toolName, toolLink, toolDescription, toolTags)
             }
+            disabled={verifyIfFieldsNotNull()}
           >
             Adicionar ferramenta
           </button>

@@ -14,8 +14,10 @@ function App() {
 
 export default App;
 
-// Ao adicionar ferramenta, atualizar a lista com o post novo
+// Ajustar bug de pesquisa por tags
+// Ajustar bug 'checked' ao carregar a página
+
 // Fazer autenticação com github && pegar user e avatar para colocar no Header / Firebase?
 // Deixar remover apenas se o usuário for o mesmo que criou
-// Ajustar bug de pesquisa
-// Ajustar bug 'checked' ao carregar a página
+
+// Ajustar loader(posição em diferentes tamanhos de tela)

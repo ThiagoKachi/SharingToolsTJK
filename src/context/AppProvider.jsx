@@ -101,6 +101,19 @@ export function Provider({ children }) {
     );
 
     setAddModal(false);
+    location.reload();
+  }
+
+  function verifyIfFieldsNotNull() {
+    if (
+      toolName.length === 0 ||
+      toolLink.length === 0 ||
+      toolDescription.length === 0 ||
+      toolTags.length === 0
+    ) {
+      return true;
+    }
+    return false;
   }
 
   const infosToShare = {
@@ -133,6 +146,7 @@ export function Provider({ children }) {
     toolTags,
     setToolTags,
     createToolPost,
+    verifyIfFieldsNotNull,
   };
 
   return (

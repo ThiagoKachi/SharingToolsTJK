@@ -79,6 +79,11 @@ export const Container = styled.div`
     margin-top: 20px;
   }
 
+  button:disabled {
+    filter: brightness(0.3);
+    cursor: not-allowed;
+  }
+
   button:hover {
     filter: brightness(0.9);
   }
