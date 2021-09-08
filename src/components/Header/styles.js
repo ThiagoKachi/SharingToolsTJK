@@ -24,11 +24,11 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     font-size: 30px;
-    border: 2px solid #68e4a8;
+    color: white;
     border-radius: 50%;
-    background: whitesmoke;
-    box-shadow: 0px 0 5px 0.5px #68e4a8;
-    color: #202024;
+    background: #202024;
+    border: 2px solid #68e4a8;
+    box-shadow: 0 0 2px 0.8px #68e4a8;
   }
 
   h1 {

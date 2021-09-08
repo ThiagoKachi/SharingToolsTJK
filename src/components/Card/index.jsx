@@ -26,13 +26,16 @@ export function Card({ post, idPost }) {
         )}
       </div>
       <p>{post.description}</p>
-      <p className="tags">
-        {post.tags.map((tag) => (
-          <span key={tag} className="tag">
-            #{tag}
-          </span>
-        ))}
-      </p>
+      <div className="tags-createdBy">
+        <p className="tags">
+          {post.tags.map((tag) => (
+            <span key={tag} className="tag">
+              #{tag}
+            </span>
+          ))}
+        </p>
+        <p className="created-by">By:{post.user}</p>
+      </div>
       {modalIsOpen && <DeleteModal />}
     </Container>
   );

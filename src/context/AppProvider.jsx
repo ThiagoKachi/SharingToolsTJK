@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { AppContext } from './AppContext';
 import { getPostsList, deletePostById, createPost } from '../services';
+import authWithGoogle from '../services/Api';
 
 export function Provider({ children }) {
   const [userName, setUserName] = useState('');
@@ -119,6 +120,32 @@ export function Provider({ children }) {
     return false;
   }
 
+  // Auth
+  const [googleAuth, setGoogleAuth] = useState(null);
+
+  function setRedirectAfterAuth() {
+    setRedirect(true);
+  }
+
+  async function actionLoginDataGoogle(user) {
+    const newUser = {
+      name: user.displayName,
+      avatar: user.photoURL,
+    };
+
+    setGoogleAuth(newUser);
+  }
+
+  async function actionLoginGoogle() {
+    const result = await authWithGoogle();
+
+    if (result) {
+      actionLoginDataGoogle(result.user).then(() => setRedirectAfterAuth());
+    } else {
+      alert('Erro na autenticação, tente novamente!');
+    }
+  }
+
   const infosToShare = {
     userName,
     setUserName,
@@ -150,6 +177,8 @@ export function Provider({ children }) {
     setToolTags,
     createToolPost,
     verifyIfFieldsNotNull,
+    actionLoginGoogle,
+    googleAuth,
   };
 
   return (
