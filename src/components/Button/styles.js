@@ -5,6 +5,7 @@ export const Container = styled.button`
   align-items: center;
   justify-content: center;
   background: white;
+  color: #1c1c1c;
 
   width: 120px;
   padding: 3px;
@@ -21,6 +22,11 @@ export const Container = styled.button`
 
   &:active {
     transform: scale(0.99);
+  }
+
+  img {
+    width: 22px;
+    margin-right: 8px;
   }
 
   span {

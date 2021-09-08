@@ -52,6 +52,12 @@ export const Container = styled.main`
         outline: none;
       }
 
+      label {
+        display: flex;
+        margin-bottom: 3px;
+        font-size: 14px;
+      }
+
       .or-styles {
         display: flex;
         align-items: center;
@@ -97,7 +103,7 @@ export const Container = styled.main`
     filter: brightness(0.9);
   }
 
-  .login-github {
+  .login-google {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -110,23 +116,21 @@ export const Container = styled.main`
     font-weight: 600;
     cursor: pointer;
 
-    background: black;
-    color: white;
+    background: white;
+    color: black;
     transition: background 0.3s;
 
     img {
       width: 30px;
       margin-right: 20px;
-      filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(86deg)
-        brightness(118%) contrast(119%);
     }
   }
 
-  .login-github:hover {
-    background: rgb(11, 11, 11);
+  .login-google:hover {
+    background: #f0fff0;
   }
 
-  .login-github:active,
+  .login-google:active,
   .normal-login:active {
     transform: scale(0.99);
   }

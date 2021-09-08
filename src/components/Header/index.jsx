@@ -19,13 +19,23 @@ function Header() {
         <div>
           <img src={googleAuth.avatar} alt="Foto do usuario" />
           <h1>SharingToolsTJK</h1>
-          <p>{googleAuth.name}</p>
+          <p className="name-logout">
+            {googleAuth.name}
+            <div className="content">
+              <span onClick={() => (window.location.href = '/')}>Sair</span>
+            </div>
+          </p>
         </div>
       ) : (
         <div>
-          <h2>{userName.substr(0, 1)}</h2>
+          <h2>{userName.substr(0, 1).toUpperCase()}</h2>
           <h1>SharingToolsTJK</h1>
-          <p>{userName}</p>
+          <p className="name-logout">
+            {userName}
+            <div className="content">
+              <span onClick={() => (window.location.href = '/')}>Sair</span>
+            </div>
+          </p>
         </div>
       )}
     </Container>
