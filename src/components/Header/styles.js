@@ -7,6 +7,7 @@ export const Container = styled.div`
   div {
     display: flex;
     justify-content: space-between;
+    /* align-items: center; */
     padding: 14px 50px;
   }
 
@@ -34,17 +35,17 @@ export const Container = styled.div`
     font-size: 32px;
     font-weight: 700;
     color: #68e4a8;
-    margin-top: 5px;
+    margin-top: 4px;
     margin-left: 50px;
-  }
-
-  p {
-    font-size: 18px;
-    margin-top: 10px;
   }
 
   .name-logout {
     position: relative;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    padding-right: 0;
+    margin-top: -8px;
   }
 
   span {
@@ -52,12 +53,19 @@ export const Container = styled.div`
     font-size: 14px;
     cursor: pointer;
     color: #68e4a8;
+    margin-top: -8px;
   }
 
   .content {
-    margin: 4px 0;
     padding: 0;
     display: flex;
     justify-content: center;
+  }
+
+  .default-avatar {
+    filter: invert(100%);
+    width: 50px;
+    border: none;
+    box-shadow: none;
   }
 `;

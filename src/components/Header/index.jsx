@@ -3,8 +3,10 @@ import { AppContext } from '../../context/AppContext';
 
 import { Container } from './styles';
 
+import userImg from '../../assets/user.png';
+
 function Header() {
-  const { googleAuth } = useContext(AppContext);
+  const { googleAuth, signoutFunc } = useContext(AppContext);
 
   if (googleAuth) {
     localStorage.setItem('userNameAuth', googleAuth.name);
@@ -19,23 +21,23 @@ function Header() {
         <div>
           <img src={googleAuth.avatar} alt="Foto do usuario" />
           <h1>SharingToolsTJK</h1>
-          <p className="name-logout">
+          <div className="name-logout">
             {googleAuth.name}
-            <div className="content">
-              <span onClick={() => (window.location.href = '/')}>Sair</span>
-            </div>
-          </p>
+            <p className="content">
+              <span onClick={() => signoutFunc()}>Sair</span>
+            </p>
+          </div>
         </div>
       ) : (
         <div>
-          <h2>{userName.substr(0, 1).toUpperCase()}</h2>
+          <img className="default-avatar" src={userImg} alt="Foto do usuario" />
           <h1>SharingToolsTJK</h1>
-          <p className="name-logout">
+          <div className="name-logout">
             {userName}
-            <div className="content">
+            <p className="content">
               <span onClick={() => (window.location.href = '/')}>Sair</span>
-            </div>
-          </p>
+            </p>
+          </div>
         </div>
       )}
     </Container>
