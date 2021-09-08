@@ -11,4 +11,7 @@ async function authWithGoogle() {
   return result;
 }
 
-export default authWithGoogle;
+const auth = firebase.auth();
+const signout = firebase.auth().signOut();
+
+export { authWithGoogle, auth, signout };

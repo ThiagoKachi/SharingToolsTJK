@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { AppContext } from './AppContext';
 import { getPostsList, deletePostById, createPost } from '../services';
-import authWithGoogle from '../services/Api';
+import { auth, authWithGoogle, signout } from '../services/Api';
 
 export function Provider({ children }) {
   const [userName, setUserName] = useState('');
@@ -148,6 +148,35 @@ export function Provider({ children }) {
     }
   }
 
+  //
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        const { displayName, photoURL } = user;
+
+        if (!displayName || !photoURL) {
+          throw new Error('Missing information from google Account.');
+        }
+
+        const newUser = {
+          name: user.displayName,
+          avatar: user.photoURL,
+        };
+
+        setGoogleAuth(newUser);
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  function signoutFunc() {
+    return signout();
+  }
+
   const infosToShare = {
     userName,
     setUserName,
@@ -183,6 +212,7 @@ export function Provider({ children }) {
     verifyIfFieldsNotNull,
     actionLoginGoogle,
     googleAuth,
+    signoutFunc,
   };
 
   return (
