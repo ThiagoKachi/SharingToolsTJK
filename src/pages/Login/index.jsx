@@ -15,6 +15,7 @@ export function Login() {
     getUserName,
     setDisableButtonIsTrueOrFalse,
     redirect,
+    actionLoginGoogle,
   } = useContext(AppContext);
 
   {
@@ -52,7 +53,7 @@ export function Login() {
             <p>ou</p>
             <span></span>
           </div>
-          <button className="login-github">
+          <button className="login-github" onClick={actionLoginGoogle}>
             <img src={githubLogo} alt="Github Logo" />
             Login com GitHub
           </button>

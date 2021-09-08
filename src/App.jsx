@@ -14,5 +14,8 @@ function App() {
 
 export default App;
 
-// Fazer autenticação com github && pegar user e avatar para colocar no Header / Firebase?
-// Deixar remover apenas se o usuário for o mesmo que criou
+// Modificar "botão" de excluir post
+// Fazer tratamento de erros quando o usuário estiver logado ou não
+// Voltar para a página de login caso o usuário não esteja mais autenticado / ao atualiza a página enquanto logado
+// Definir se a autenticação vai ser por github ou google
+// Usar somente autenticação para poder usar o app?

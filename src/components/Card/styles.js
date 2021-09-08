@@ -50,6 +50,18 @@ export const Container = styled.div`
     margin-bottom: 6px;
   }
 
+  .tags-createdBy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .created-by {
+      font-size: 12px;
+      font-weight: 600;
+      margin-right: 14px;
+    }
+  }
+
   .tags {
     display: flex;
     flex-direction: row;
