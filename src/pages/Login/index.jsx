@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 import { Container } from './styles';
 
-import githubLogo from '../../assets/github-white.svg';
+import googleLogo from '../../assets/google-logo.png';
 import mainImg from '../../assets/mainImg.png';
 
 import { AppContext } from '../../context/AppContext';
@@ -12,6 +12,8 @@ export function Login() {
   const {
     userName,
     setUserName,
+    userEmail,
+    setUserEmail,
     getUserName,
     setDisableButtonIsTrueOrFalse,
     redirect,
@@ -34,17 +36,25 @@ export function Login() {
           <img src={mainImg} alt="Code Image" />
         </div>
         <div className="form">
-          <p className="user-name">Insira seu nome</p>
+          <p className="user-name">Insira seu nome e email</p>
+          <label htmlFor="">Nome</label>
           <input
             type="text"
             placeholder="John Doe"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
           />
+          <label htmlFor="">Email</label>
+          <input
+            type="email"
+            placeholder="john_doe123@gmail.com"
+            value={userEmail}
+            onChange={(e) => setUserEmail(e.target.value)}
+          />
           <button
             className="normal-login"
             onClick={getUserName}
-            disabled={setDisableButtonIsTrueOrFalse()}
+            disabled={!setDisableButtonIsTrueOrFalse()}
           >
             Entrar
           </button>
@@ -53,9 +63,9 @@ export function Login() {
             <p>ou</p>
             <span></span>
           </div>
-          <button className="login-github" onClick={actionLoginGoogle}>
-            <img src={githubLogo} alt="Github Logo" />
-            Login com GitHub
+          <button className="login-google" onClick={actionLoginGoogle}>
+            <img src={googleLogo} alt="Google Logo" />
+            Login com Google
           </button>
         </div>
       </div>

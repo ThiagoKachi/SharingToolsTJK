@@ -6,6 +6,8 @@ import { Button } from '../Button';
 import { AppContext } from '../../context/AppContext';
 import { DeleteModal } from '../../components/DeleteModal';
 
+import trashImg from '../../assets/trash.png';
+
 export function Card({ post, idPost }) {
   const { modalIsOpen, openModal } = useContext(AppContext);
 
@@ -17,7 +19,7 @@ export function Card({ post, idPost }) {
         <a href={post.link}>{post.title}</a>
         {post.user === userName || userName === 'Thiago Kachi' ? (
           <Button
-            symbol="X"
+            image={trashImg}
             content="remove"
             onClick={() => openModal(idPost)}
           />

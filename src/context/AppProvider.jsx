@@ -7,16 +7,18 @@ import authWithGoogle from '../services/Api';
 
 export function Provider({ children }) {
   const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
   const [redirect, setRedirect] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [getId, setGetId] = useState('');
 
   function setDisableButtonIsTrueOrFalse() {
-    if (userName.length >= 1) {
-      return false;
+    const validator = /^[A-Za-z0-9_.]+@[a-zA-Z_]+?\.[a-zA-Z_.]{2,7}$/;
+    if (userName.length >= 1 && validator.test(userEmail)) {
+      return true;
     }
 
-    return true;
+    return false;
   }
 
   function getUserName() {
@@ -149,6 +151,8 @@ export function Provider({ children }) {
   const infosToShare = {
     userName,
     setUserName,
+    userEmail,
+    setUserEmail,
     getUserName,
     redirect,
     setDisableButtonIsTrueOrFalse,
