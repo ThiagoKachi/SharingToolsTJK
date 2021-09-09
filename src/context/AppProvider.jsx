@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { AppContext } from './AppContext';
 import { getPostsList, deletePostById, createPost } from '../services';
-import { auth, authWithGoogle, signout } from '../services/Api';
+import { auth, authWithGoogle } from '../services/Api';
 
 export function Provider({ children }) {
   const [userName, setUserName] = useState('');
@@ -98,8 +98,8 @@ export function Provider({ children }) {
     e.preventDefault();
   }
 
-  function createToolPost(title, link, description, tags) {
-    createPost(title, link, description, tags).then((res) =>
+  function createToolPost(title, link, description, tags, user, email) {
+    createPost(title, link, description, tags, user, email).then((res) =>
       setPostsList((prevState) => [...prevState, res])
     );
 
@@ -133,6 +133,7 @@ export function Provider({ children }) {
     const newUser = {
       name: user.displayName,
       avatar: user.photoURL,
+      email: user.email,
     };
 
     setGoogleAuth(newUser);
@@ -144,24 +145,24 @@ export function Provider({ children }) {
     if (result) {
       actionLoginDataGoogle(result.user).then(() => setRedirectAfterAuth());
     } else {
-      alert('Erro na autenticação, tente novamente!');
+      throw new Error('Missing information from google Account.');
     }
   }
 
-  //
-
+  // Persist auth user
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        const { displayName, photoURL } = user;
+        const { displayName, photoURL, email } = user;
 
-        if (!displayName || !photoURL) {
+        if (!displayName || !photoURL || !email) {
           throw new Error('Missing information from google Account.');
         }
 
         const newUser = {
           name: user.displayName,
           avatar: user.photoURL,
+          email: user.email,
         };
 
         setGoogleAuth(newUser);
@@ -173,8 +174,21 @@ export function Provider({ children }) {
     };
   }, []);
 
-  function signoutFunc() {
-    return signout();
+  //
+  function verifyName() {
+    if (googleAuth) {
+      return googleAuth.name;
+    } else {
+      return userName;
+    }
+  }
+
+  function verifyEmail() {
+    if (googleAuth) {
+      return googleAuth.email;
+    } else {
+      return userEmail;
+    }
   }
 
   const infosToShare = {
@@ -212,7 +226,8 @@ export function Provider({ children }) {
     verifyIfFieldsNotNull,
     actionLoginGoogle,
     googleAuth,
-    signoutFunc,
+    verifyName,
+    verifyEmail,
   };
 
   return (

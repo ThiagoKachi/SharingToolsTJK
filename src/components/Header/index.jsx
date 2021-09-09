@@ -4,16 +4,21 @@ import { AppContext } from '../../context/AppContext';
 import { Container } from './styles';
 
 import userImg from '../../assets/user.png';
+import { signOut } from '../../services/Api';
 
 function Header() {
-  const { googleAuth, signoutFunc } = useContext(AppContext);
+  const { googleAuth, userName } = useContext(AppContext);
 
   if (googleAuth) {
     localStorage.setItem('userNameAuth', googleAuth.name);
     localStorage.setItem('userAvatarAuth', googleAuth.avatar);
+    localStorage.setItem('userEmailAuth', googleAuth.email);
   }
 
-  const userName = localStorage.getItem('userName');
+  function logoutNotAuth() {
+    window.location.href = '/';
+    localStorage.removeItem('userName');
+  }
 
   return (
     <Container>
@@ -24,7 +29,7 @@ function Header() {
           <div className="name-logout">
             {googleAuth.name}
             <p className="content">
-              <span onClick={() => signoutFunc()}>Sair</span>
+              <span onClick={signOut}>Sair</span>
             </p>
           </div>
         </div>
@@ -35,7 +40,7 @@ function Header() {
           <div className="name-logout">
             {userName}
             <p className="content">
-              <span onClick={() => (window.location.href = '/')}>Sair</span>
+              <span onClick={() => logoutNotAuth()}>Sair</span>
             </p>
           </div>
         </div>

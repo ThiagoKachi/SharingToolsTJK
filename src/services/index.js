@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
-const userName = localStorage.getItem('userName');
-
 export async function getPostsList() {
   const { data } = await axios.get('http://localhost:3004/tools');
   return data;
@@ -17,7 +15,7 @@ export async function deletePostById(id) {
   }
 }
 
-export async function createPost(title, link, description, tags) {
+export async function createPost(title, link, description, tags, user, email) {
   const stringSplit = tags.split(' ');
 
   try {
@@ -27,7 +25,8 @@ export async function createPost(title, link, description, tags) {
       link,
       description,
       tags: stringSplit,
-      user: userName,
+      user,
+      email,
     });
 
     return data;

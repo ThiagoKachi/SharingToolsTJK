@@ -12,6 +12,24 @@ async function authWithGoogle() {
 }
 
 const auth = firebase.auth();
-const signout = firebase.auth().signOut();
 
-export { authWithGoogle, auth, signout };
+const signOut = async (e) => {
+  e.preventDefault();
+
+  await firebase
+    .auth()
+    .signOut()
+    .then(function () {
+      console.log('Successfully signed out.');
+      localStorage.removeItem('userNameAuth');
+      localStorage.removeItem('userAvatarAuth');
+    })
+    .catch(function (error) {
+      console.log(error);
+      console.log('An error occurred');
+    });
+
+  return (window.location.href = '/');
+};
+
+export { authWithGoogle, auth, signOut };

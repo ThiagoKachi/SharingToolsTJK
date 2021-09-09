@@ -9,15 +9,18 @@ import { DeleteModal } from '../../components/DeleteModal';
 import trashImg from '../../assets/trash.png';
 
 export function Card({ post, idPost }) {
-  const { modalIsOpen, openModal } = useContext(AppContext);
+  const { modalIsOpen, openModal, userName, userEmail } =
+    useContext(AppContext);
 
-  const userName = localStorage.getItem('userName');
+  const userNameAuth = localStorage.getItem('userNameAuth');
+  const userEmailAuth = localStorage.getItem('userEmailAuth');
 
   return (
     <Container>
       <div className="content">
         <a href={post.link}>{post.title}</a>
-        {post.user === userName || userName === 'Thiago Kachi' ? (
+        {(post.user === userName && post.email === userEmail) ||
+        (post.user === userNameAuth && post.email === userEmailAuth) ? (
           <Button
             image={trashImg}
             content="remove"

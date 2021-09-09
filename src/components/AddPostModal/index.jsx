@@ -21,6 +21,8 @@ export function AddPostModal() {
     setToolTags,
     createToolPost,
     verifyIfFieldsNotNull,
+    verifyName,
+    verifyEmail,
   } = useContext(AppContext);
 
   return (
@@ -78,7 +80,14 @@ export function AddPostModal() {
           </label>
           <button
             onClick={() =>
-              createToolPost(toolName, toolLink, toolDescription, toolTags)
+              createToolPost(
+                toolName,
+                toolLink,
+                toolDescription,
+                toolTags,
+                verifyName(),
+                verifyEmail()
+              )
             }
             disabled={verifyIfFieldsNotNull()}
           >
