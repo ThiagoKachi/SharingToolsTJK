@@ -14,6 +14,6 @@ function App() {
 
 export default App;
 
-// Salvar nome do usuário ao criar post(autenticado)
-// Fazer tratamento de erros quando o usuário estiver logado ou não
-// Definir se a autenticação vai ser por github e/ou google
+// Separar os contextos da aplicação em mais arquivos(organizar)
+// Tratar erro ao fechar o modal de login google
+// Definir o estilo do app

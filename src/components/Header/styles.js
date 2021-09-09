@@ -35,7 +35,6 @@ export const Container = styled.div`
     font-size: 32px;
     font-weight: 700;
     color: #68e4a8;
-    margin-top: 4px;
     margin-left: 50px;
   }
 
@@ -53,7 +52,7 @@ export const Container = styled.div`
     font-size: 14px;
     cursor: pointer;
     color: #68e4a8;
-    margin-top: -8px;
+    margin-top: -2px;
   }
 
   .content {
