@@ -7,7 +7,6 @@ export const Container = styled.div`
   div {
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
     padding: 14px 50px;
   }
 
@@ -66,5 +65,17 @@ export const Container = styled.div`
     width: 50px;
     border: none;
     box-shadow: none;
+  }
+
+  @media (max-width: 870px) {
+    h1 {
+      display: none;
+    }
+  }
+
+  @media (max-width: 380px) {
+    img {
+      display: none;
+    }
   }
 `;

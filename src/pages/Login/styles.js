@@ -134,4 +134,32 @@ export const Container = styled.main`
   .normal-login:active {
     transform: scale(0.99);
   }
+
+  @media (max-width: 1200px) {
+    .image-main {
+      display: none;
+    }
+  }
+
+  @media (max-width: 770px) {
+    h1 {
+      font-size: 34px;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .content {
+      padding: 30px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    & {
+      margin-top: 40px;
+    }
+
+    .content {
+      margin: -50px 0;
+    }
+  }
 `;

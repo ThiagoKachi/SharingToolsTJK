@@ -47,4 +47,19 @@ export const Container = styled.div`
     border: none;
     box-shadow: none;
   }
+
+  @media (max-width: 650px) {
+    & {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .checkbox {
+      margin: 10px 0;
+    }
+
+    button {
+      margin: 10px 0;
+    }
+  }
 `;
