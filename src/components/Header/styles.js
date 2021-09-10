@@ -32,7 +32,7 @@ export const Container = styled.div`
   }
 
   h1 {
-    font-size: 32px;
+    font-size: 38px;
     font-weight: 700;
     color: #68e4a8;
     margin-left: 50px;
