@@ -7,13 +7,15 @@ import userImg from '../../assets/user.png';
 import { signOut } from '../../services/Api';
 
 function Header() {
-  const { googleAuth, userName } = useContext(AppContext);
+  const { googleAuth } = useContext(AppContext);
 
   if (googleAuth) {
     localStorage.setItem('userNameAuth', googleAuth.name);
     localStorage.setItem('userAvatarAuth', googleAuth.avatar);
     localStorage.setItem('userEmailAuth', googleAuth.email);
   }
+
+  const userName = localStorage.getItem('userName');
 
   function logoutNotAuth() {
     window.location.href = '/';

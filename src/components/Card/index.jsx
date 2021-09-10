@@ -30,7 +30,7 @@ export function Card({ post, idPost }) {
           ''
         )}
       </div>
-      <p>{post.description}</p>
+      <p className="description">{post.description}</p>
       <div className="tags-createdBy">
         <p className="tags">
           {post.tags.map((tag) => (
@@ -39,7 +39,7 @@ export function Card({ post, idPost }) {
             </span>
           ))}
         </p>
-        <p className="created-by">By:{post.user}</p>
+        <p className="created-by">By: {post.user}</p>
       </div>
       {modalIsOpen && <DeleteModal />}
     </Container>

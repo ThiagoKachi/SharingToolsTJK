@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background: white;
+  background: #202024;
+  color: whitesmoke;
   width: 100%;
   max-width: 840px;
   margin: 0 auto;
   padding: 10px 20px 5px 20px;
-  color: black;
   margin-top: 20px;
   border-radius: 4px;
-  border: 2px solid #68e4a8;
+  box-shadow: 2px 2px 10px 1px rgba(104, 228, 168, 0.2);
+  transition: transform 0.2s;
 
   &:first-child {
     margin-top: 20px;
@@ -17,6 +18,10 @@ export const Container = styled.div`
 
   &:last-child {
     margin-bottom: 20px;
+  }
+
+  &:hover {
+    transform: scale(1.01);
   }
 
   .content {
@@ -27,23 +32,31 @@ export const Container = styled.div`
 
     a {
       font-size: 24px;
+      color: #68e4a8;
     }
 
     button {
       background: none;
       border: none;
+      color: whitesmoke;
+      letter-spacing: 0.6px;
+
+      img {
+        filter: invert(100%);
+      }
 
       span {
         font-size: 18px;
         font-weight: 900;
-        color: #1c1c1c;
       }
     }
   }
 
   p:nth-child(2) {
     margin-bottom: 12px;
-    color: #1c1c1c;
+  }
+
+  .description {
   }
 
   span:nth-child(2) {
@@ -66,7 +79,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     font-weight: 700;
-    color: #1c1c1c;
   }
 
   .tag {
