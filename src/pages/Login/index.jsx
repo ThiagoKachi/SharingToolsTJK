@@ -6,7 +6,7 @@ import { Container } from './styles';
 import googleLogo from '../../assets/google-logo.png';
 import mainImg from '../../assets/mainImg.png';
 
-import { AppContext } from '../../context/AppContext';
+import { AppContext, AuthContext } from '../../context/AppContext';
 
 export function Login() {
   const {
@@ -16,12 +16,19 @@ export function Login() {
     setUserEmail,
     getUserName,
     setDisableButtonIsTrueOrFalse,
-    redirect,
-    actionLoginGoogle,
+    redirectWithEmail,
   } = useContext(AppContext);
+
+  const { actionLoginGoogle, redirect } = useContext(AuthContext);
 
   {
     if (redirect) {
+      return <Redirect to="/home" />;
+    }
+  }
+
+  {
+    if (redirectWithEmail) {
       return <Redirect to="/home" />;
     }
   }

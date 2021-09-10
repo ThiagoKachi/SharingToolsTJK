@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Modal from 'react-modal';
-import { AppContext } from '../../context/AppContext';
+import { AppContext, AuthContext } from '../../context/AppContext';
 
 import { Container } from './styles';
 
@@ -21,9 +21,9 @@ export function AddPostModal() {
     setToolTags,
     createToolPost,
     verifyIfFieldsNotNull,
-    verifyName,
-    verifyEmail,
   } = useContext(AppContext);
+
+  const { verifyEmail, verifyName } = useContext(AuthContext);
 
   return (
     <Modal
