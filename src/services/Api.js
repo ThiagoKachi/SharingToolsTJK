@@ -23,6 +23,7 @@ const signOut = async (e) => {
       console.log('Successfully signed out.');
       localStorage.removeItem('userNameAuth');
       localStorage.removeItem('userAvatarAuth');
+      localStorage.removeItem('userEmailAuth');
     })
     .catch(function (error) {
       console.log(error);

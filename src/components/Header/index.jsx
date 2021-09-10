@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AppContext } from '../../context/AppContext';
+import { AuthContext } from '../../context/AppContext';
 
 import { Container } from './styles';
 
@@ -7,7 +7,7 @@ import userImg from '../../assets/user.png';
 import { signOut } from '../../services/Api';
 
 function Header() {
-  const { googleAuth } = useContext(AppContext);
+  const { googleAuth } = useContext(AuthContext);
 
   if (googleAuth) {
     localStorage.setItem('userNameAuth', googleAuth.name);

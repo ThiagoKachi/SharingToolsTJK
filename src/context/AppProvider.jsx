@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 import { AppContext } from './AppContext';
 import { getPostsList, deletePostById, createPost } from '../services';
-import { auth, authWithGoogle } from '../services/Api';
 
 export function Provider({ children }) {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
-  const [redirect, setRedirect] = useState(false);
+  const [redirectWithEmail, setRedirectWithEmail] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [getId, setGetId] = useState('');
 
+  // Set login button, true or false
   function setDisableButtonIsTrueOrFalse() {
     const validator = /^[A-Za-z0-9_.]+@[a-zA-Z_]+?\.[a-zA-Z_.]{2,7}$/;
     if (userName.length >= 1 && validator.test(userEmail)) {
@@ -21,12 +21,13 @@ export function Provider({ children }) {
     return false;
   }
 
+  // Save username in localstorage when logging in
   function getUserName() {
     localStorage.setItem('userName', userName);
-    setRedirect(true);
+    setRedirectWithEmail(true);
   }
 
-  // Posts List Homepage
+  // Get posts list homepage
   const [postsList, setPostsList] = useState([]);
 
   useEffect(() => {
@@ -40,7 +41,7 @@ export function Provider({ children }) {
     getPostList();
   }, []);
 
-  // SearchBar
+  // Search logic
   const [searchPost, setSearchPost] = useState('');
 
   const lowerSearch = searchPost.toLowerCase();
@@ -53,7 +54,7 @@ export function Provider({ children }) {
     tags.find((tag) => tag.toLowerCase().includes(lowerSearch))
   );
 
-  // Delete post
+  // Delete post(by id)
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function getPostId(id) {
@@ -69,6 +70,9 @@ export function Provider({ children }) {
     );
   }
 
+  // Modal logic
+  const [addModal, setAddModal] = useState(false);
+
   function openModal(id) {
     setIsOpen(true);
     setGetId(id);
@@ -77,8 +81,6 @@ export function Provider({ children }) {
   function closeModal() {
     setIsOpen(false);
   }
-
-  const [addModal, setAddModal] = useState(false);
 
   function openAddToolModal() {
     setAddModal(true);
@@ -98,6 +100,7 @@ export function Provider({ children }) {
     e.preventDefault();
   }
 
+  // Create post
   function createToolPost(title, link, description, tags, user, email) {
     createPost(title, link, description, tags, user, email).then((res) =>
       setPostsList((prevState) => [...prevState, res])
@@ -110,6 +113,7 @@ export function Provider({ children }) {
     setToolTags([]);
   }
 
+  // Verify if fields are not null
   function verifyIfFieldsNotNull() {
     if (
       toolName.length === 0 ||
@@ -122,82 +126,14 @@ export function Provider({ children }) {
     return false;
   }
 
-  // Auth
-  const [googleAuth, setGoogleAuth] = useState(null);
-
-  function setRedirectAfterAuth() {
-    setRedirect(true);
-  }
-
-  async function actionLoginDataGoogle(user) {
-    const newUser = {
-      name: user.displayName,
-      avatar: user.photoURL,
-      email: user.email,
-    };
-
-    setGoogleAuth(newUser);
-  }
-
-  async function actionLoginGoogle() {
-    const result = await authWithGoogle();
-
-    if (result) {
-      actionLoginDataGoogle(result.user).then(() => setRedirectAfterAuth());
-    } else {
-      throw new Error('Missing information from google Account.');
-    }
-  }
-
-  // Persist auth user
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        const { displayName, photoURL, email } = user;
-
-        if (!displayName || !photoURL || !email) {
-          throw new Error('Missing information from google Account.');
-        }
-
-        const newUser = {
-          name: user.displayName,
-          avatar: user.photoURL,
-          email: user.email,
-        };
-
-        setGoogleAuth(newUser);
-      }
-    });
-
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-
-  //
-  function verifyName() {
-    if (googleAuth) {
-      return googleAuth.name;
-    } else {
-      return userName;
-    }
-  }
-
-  function verifyEmail() {
-    if (googleAuth) {
-      return googleAuth.email;
-    } else {
-      return userEmail;
-    }
-  }
-
+  // Sahre infos
   const infosToShare = {
     userName,
     setUserName,
     userEmail,
     setUserEmail,
     getUserName,
-    redirect,
+    redirectWithEmail,
     setDisableButtonIsTrueOrFalse,
     postsList,
     searchPost,
@@ -224,10 +160,6 @@ export function Provider({ children }) {
     setToolTags,
     createToolPost,
     verifyIfFieldsNotNull,
-    actionLoginGoogle,
-    googleAuth,
-    verifyName,
-    verifyEmail,
   };
 
   return (
