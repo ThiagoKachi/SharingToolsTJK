@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-
 import Modal from 'react-modal';
+
 import { AppContext } from '../../context/AppContext';
 
 import { Container } from './styles';

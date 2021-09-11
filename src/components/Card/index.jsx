@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { Container } from './styles';
-import { Button } from '../Button';
-import { AppContext } from '../../context/AppContext';
-import { DeleteModal } from '../../components/DeleteModal';
-
 import trashImg from '../../assets/trash.png';
+
+import { Container } from './styles';
+
+import { Button } from '../Button';
+import { DeleteModal } from '../DeleteModal';
+
+import { AppContext } from '../../context/AppContext';
 
 export function Card({ post, idPost }) {
   const { modalIsOpen, openModal, userName, userEmail } =

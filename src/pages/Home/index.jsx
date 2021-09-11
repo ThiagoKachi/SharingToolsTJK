@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 
-import Header from '../../components/Header';
-
-import { SearchBar } from '../../components/SearchBar';
 import { Container } from './styles';
+
+import { Header } from '../../components/Header';
+import { SearchBar } from '../../components/SearchBar';
 import { Loader } from '../../components/Loader';
 import { CardList } from '../../components/CardList';
-import { AppContext } from '../../context/AppContext';
 import { AddPostModal } from '../../components/AddPostModal';
+
+import { AppContext } from '../../context/AppContext';
 
 export function Home() {
   const { isLoading, addModal } = useContext(AppContext);

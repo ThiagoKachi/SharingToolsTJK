@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import Modal from 'react-modal';
-import { AppContext, AuthContext } from '../../context/AppContext';
 
 import { Container } from './styles';
+
+import { AppContext, AuthContext } from '../../context/AppContext';
 
 Modal.setAppElement('#root');
 

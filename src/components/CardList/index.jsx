@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
 import { Container } from './styles';
+
 import { AppContext } from '../../context/AppContext';
 
 import { Card } from '../Card';

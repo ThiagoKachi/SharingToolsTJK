@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 
 import { Container } from './styles';
+
 import { Button } from '../../components/Button';
+
 import { AppContext } from '../../context/AppContext';
 
 export function SearchBar() {
