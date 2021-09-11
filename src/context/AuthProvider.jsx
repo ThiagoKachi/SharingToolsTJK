@@ -7,31 +7,23 @@ import { auth, authWithGoogle } from '../services/googleAuth';
 
 export function Authprovider({ children }) {
   const { userName, userEmail } = useContext(AppContext);
-  const [redirect, setRedirect] = useState(false);
-
   const [googleAuth, setGoogleAuth] = useState(null);
 
-  function setRedirectAfterAuth() {
-    setRedirect(true);
-  }
-
-  async function actionLoginDataGoogle(user) {
-    const newUser = {
-      name: user.displayName,
-      avatar: user.photoURL,
-      email: user.email,
-    };
-
-    setGoogleAuth(newUser);
-  }
-
-  async function actionLoginGoogle() {
+  async function signInWithGoogle() {
     const result = await authWithGoogle();
 
-    if (result) {
-      actionLoginDataGoogle(result.user).then(() => setRedirectAfterAuth());
-    } else {
-      throw new Error('Missing information from google Account.');
+    if (result.user) {
+      const { displayName, photoURL, email } = result.user;
+
+      if (!displayName || !photoURL || !email) {
+        throw new Error('Missing information from google Account.');
+      }
+
+      setGoogleAuth({
+        name: displayName,
+        avatar: photoURL,
+        email: email,
+      });
     }
   }
 
@@ -45,13 +37,11 @@ export function Authprovider({ children }) {
           throw new Error('Missing information from google Account.');
         }
 
-        const newUser = {
-          name: user.displayName,
-          avatar: user.photoURL,
-          email: user.email,
-        };
-
-        setGoogleAuth(newUser);
+        setGoogleAuth({
+          name: displayName,
+          avatar: photoURL,
+          email: email,
+        });
       }
     });
 
@@ -60,7 +50,6 @@ export function Authprovider({ children }) {
     };
   }, []);
 
-  //
   function verifyName() {
     if (googleAuth) {
       return googleAuth.name;
@@ -78,11 +67,10 @@ export function Authprovider({ children }) {
   }
 
   const infosToShare = {
-    actionLoginGoogle,
     googleAuth,
     verifyName,
     verifyEmail,
-    redirect,
+    signInWithGoogle,
   };
   return (
     <AuthContext.Provider value={infosToShare}>{children}</AuthContext.Provider>
