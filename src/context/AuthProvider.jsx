@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { AppContext, AuthContext } from './AppContext';
-import { auth, authWithGoogle } from '../services/Api';
+
+import { auth, authWithGoogle } from '../services/googleAuth';
 
 export function Authprovider({ children }) {
   const { userName, userEmail } = useContext(AppContext);

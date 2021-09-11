@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { AppContext } from './AppContext';
+
 import { getPostsList, deletePostById, createPost } from '../services';
 
 export function Provider({ children }) {

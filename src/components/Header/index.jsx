@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../context/AppContext';
+
+import userImg from '../../assets/user.png';
 
 import { Container } from './styles';
 
-import userImg from '../../assets/user.png';
-import { signOut } from '../../services/Api';
+import { AuthContext } from '../../context/AppContext';
 
-function Header() {
+import { signOut } from '../../services/googleAuth';
+
+export function Header() {
   const { googleAuth } = useContext(AuthContext);
 
   if (googleAuth) {
@@ -50,5 +52,3 @@ function Header() {
     </Container>
   );
 }
-
-export default Header;
