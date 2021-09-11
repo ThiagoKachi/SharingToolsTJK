@@ -7,6 +7,7 @@ import googleLogo from '../../assets/google-logo.png';
 import mainImg from '../../assets/mainImg.png';
 
 import { AppContext, AuthContext } from '../../context/AppContext';
+import { useHistory } from 'react-router';
 
 export function Login() {
   const {
@@ -19,12 +20,15 @@ export function Login() {
     redirectWithEmail,
   } = useContext(AppContext);
 
-  const { actionLoginGoogle, redirect } = useContext(AuthContext);
+  const { googleAuth, signInWithGoogle } = useContext(AuthContext);
 
-  {
-    if (redirect) {
-      return <Redirect to="/home" />;
+  const history = useHistory();
+
+  async function handleLogin() {
+    if (!googleAuth) {
+      await signInWithGoogle();
     }
+    history.push('/home');
   }
 
   {
@@ -70,7 +74,7 @@ export function Login() {
             <p>ou</p>
             <span></span>
           </div>
-          <button className="login-google" onClick={actionLoginGoogle}>
+          <button className="login-google" onClick={handleLogin}>
             <img src={googleLogo} alt="Google Logo" />
             Login com Google
           </button>
