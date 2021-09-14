@@ -1,37 +1,29 @@
 {
   "tools": [
     {
-      "id": "0167439a-708c-4c0e-8a4c-16b5cd2a6bf0",
-      "title": "thiago",
-      "link": "thi",
-      "description": "t",
+      "id": "f161c9ed-bd84-4c3f-a1d7-fe564b855395",
+      "title": "Slack",
+      "link": "https://slack.com/intl/pt-br/",
+      "description": "O Slack oferece muitos recursos no estilo IRC, incluindo salas de chat persistentes organizadas por tópico, grupos privados e mensagens diretas.",
       "tags": [
-        "t"
+        "chat",
+        "equipe",
+        "comunicação"
       ],
-      "user": "thiago",
-      "email": "thiago@gmail.com"
+      "user": "Thiago Kachi",
+      "email": "thiagokachidev@gmail.com"
     },
     {
-      "id": "ed42db05-b589-4cf6-981d-2e767a154599",
-      "title": "vfds",
-      "link": "vfd",
-      "description": "vdf",
+      "id": "283fbbd7-9565-4ac0-90e3-053188ae3ff9",
+      "title": "Youtube",
+      "link": "https://www.youtube.com/?hl=pt-br",
+      "description": "YouTube é uma plataforma de compartilhamento de vídeos.",
       "tags": [
-        "vfd"
+        "videos",
+        "tutoriais"
       ],
-      "user": "Thiago Kaaaaaa",
-      "email": "cdas@dfas.com"
-    },
-    {
-      "id": "4bc94701-b520-4d84-b2ff-9ea1546bb4e1",
-      "title": "fg",
-      "link": "bgf",
-      "description": "bgf",
-      "tags": [
-        "bfg"
-      ],
-      "user": "s",
-      "email": "cds@csw.com"
+      "user": "Thiago Kachinsky",
+      "email": "tjk091@gmail.com"
     }
   ]
 }
